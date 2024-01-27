@@ -1,0 +1,28 @@
+FROM nvidia/cuda:11.8.0-base-ubuntu20.04
+
+ENV PYTHONUNBUFFERED 1
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update
+RUN apt-get install software-properties-common -y
+RUN add-apt-repository ppa:deadsnakes/ppa   
+
+RUN apt-get update
+RUN apt-get install -y \
+        git \
+        python3.10 \
+        python3.10-dev \
+        python3-opencv \
+        pip \
+        libglib2.0-0
+
+
+RUN python3 -m pip install --upgrade pip
+
+WORKDIR /code
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD ["tail", "-f", "/dev/null"]
