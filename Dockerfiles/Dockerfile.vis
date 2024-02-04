@@ -1,0 +1,6 @@
+FROM python:3.10-buster
+RUN pip install visdom
+RUN mkdir /root/.visdom
+CMD python -m visdom.server \
+    --hostname visdom \
+    -port 8097

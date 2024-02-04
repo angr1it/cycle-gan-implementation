@@ -4,15 +4,46 @@ services:
 
   notebooks:
     container_name: notebooks
+    profiles: ['dev']
     build:
       context: .
-      dockerfile: ./Dockerfile.dev
-    
+      dockerfile: ./Dockerfiles/Dockerfile.dev
     deploy:
       resources:
         reservations:
           devices:
             - driver: nvidia
-              capabilities: [gpu]
+              capabilities: [ gpu ]
     volumes:
       - .:/code
+    networks:
+      - cycle-gan
+
+  visdom:
+    container_name: visdom
+    profiles: ['dev']
+    build:
+      context: .
+      dockerfile: ./Dockerfiles/Dockerfile.vis
+    ports:
+      - "8097:8097"
+    networks:
+      - cycle-gan
+
+  bot:
+    profiles: ['prod']
+    build:
+      context: .
+      dockerfile: ./Dockerfiles/Dockerfile.prod
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [ gpu ]
+    volumes:
+      - .:/code
+
+networks:
+  cycle-gan:
+    driver: bridge

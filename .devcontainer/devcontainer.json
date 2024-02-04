@@ -5,7 +5,7 @@
     ],
     "service": "notebooks",
     "runServices": [
-        "notebooks"
+        "notebooks", "visdom"
     ],
     "workspaceFolder": "/code",
     "customizations": {

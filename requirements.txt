@@ -1,0 +1,6 @@
+ipykernel
+torch
+torchvision
+visdom
+python-telegram-bot
+python-dotenv
