@@ -2,7 +2,7 @@
 
 Based on CycleGAN architecture [Source](https://arxiv.org/abs/1703.10593)
 
-![Alt text](image.png)
+![Alt text](./assets/image.png)
 ### Steps
 1. Ensure that the GPU driver is installed properly on the instance: [CUDA installation guide.](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 2. Create .env file according to [example.env](example.env)
