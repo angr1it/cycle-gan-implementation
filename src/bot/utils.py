@@ -26,7 +26,6 @@ def singleton(class_):
 
     return getinstance
 
-
 @singleton
 class DirsInstance:
     def __init__(self) -> None:

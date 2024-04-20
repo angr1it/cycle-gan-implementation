@@ -1,3 +1,6 @@
+## Проверка:
+Алексей уже дал добро, мой тг: https://t.me/andregrit
+
 ## Monet style telegram bot
 
 Based on CycleGAN architecture [Source](https://arxiv.org/abs/1703.10593)
